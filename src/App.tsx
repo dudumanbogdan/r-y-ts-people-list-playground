@@ -14,7 +14,20 @@ interface IState {
 }
 
 function App() {
-  const [people, setPeople] = useState<IState["people"]>([]);
+  const [people, setPeople] = useState<IState["people"]>([
+    {
+      name: "Random name1",
+      url: "https://picsum.photos/id/237/200/300",
+      age: 17,
+      note: "Sample note"
+    },
+    {
+      name: "Random name2",
+      url: "https://picsum.photos/seed/picsum/200/300",
+      age: 18,
+      note: "Sample note 2"
+    }
+  ]);
 
 
   return (
