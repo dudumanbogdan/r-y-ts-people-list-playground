@@ -1,17 +1,12 @@
 import React from "react";
-import { People } from '../App';
+import { IPeopleProp } from "../interfaces/IPeopleProp";
 
 
-interface IProps {
-    people: People[]
-}
-
-
-const PeopleList: React.FC<IProps> = ({ people }) => {
+const PeopleList: React.FC<IPeopleProp> = ({ people }) => {
     const renderList = (): JSX.Element[] => {
         return people.map(person => {
             return (
-                <li className="list-container">
+                <li className="list-container" key={person.id}>
                     <div className="list-header">
                         <img className="list-img" src={person.url} alt="url" />
                         <h2>{person.name}</h2>

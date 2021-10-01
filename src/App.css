@@ -18,8 +18,8 @@
   align-items: center;
 }
 
-.List-header h2 {
-  color: rgb(37, 36, 36)
+.list-header h2 {
+  color: rgb(68, 64, 64)
 }
 
 .list-img {
@@ -32,4 +32,26 @@
 .list-note {
   width: 30%;
   text-align: left;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  margin: 5rem auto
+}
+
+.add-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 0.3rem 0rem
+}
+
+.add-btn {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: #0b5468;
+  font-weight: 700;
+  color: white;
+  border: none
 }
