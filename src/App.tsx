@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from "./state/index";
 import './App.css';
 import PeopleAdd from './components/PeopleAdd';
 import PeopleList from './components/PeopleList';
@@ -23,16 +25,25 @@ function App() {
       note: "Sample note 2"
     } as People
   ]);
-  const reduxState = useSelector((state) => state);
+
+  const reduxState = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+  const allActionCreators = bindActionCreators(actionCreators, dispatch);
 
   console.log('reduxState', reduxState);
-
+  console.log('allActionCreators', allActionCreators);
 
   return (
     <div className="App">
       <h1>List of persons</h1>
       <PeopleList people={people} />
       <PeopleAdd people={people} setPeople={setPeople} />
+
+      <section>
+        <button onClick={() => allActionCreators.depositMoney(5)}>Deposit 5 units</button>
+        <button onClick={() => allActionCreators.withdrawMoney(1)}>Withdraw 1 units</button>
+        <span>Current deposit value: {reduxState.account}</span>
+      </section>
     </div>
   );
 }

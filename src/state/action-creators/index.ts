@@ -1,6 +1,6 @@
 export const depositMoney = (amount: any) => {
-  return (dispatch: (arg0: { type: string; payload: any }) => any) => {
-    return dispatch({
+  return (dispatch: any) => {
+    dispatch({
       type: "deposit",
       payload: amount,
     });
@@ -8,8 +8,8 @@ export const depositMoney = (amount: any) => {
 };
 
 export const withdrawMoney = (amount: any) => {
-  return (dispatch: (arg0: { type: string; payload: any }) => any) => {
-    return dispatch({
+  return (dispatch: any) => {
+    dispatch({
       type: "withdraw",
       payload: amount,
     });
