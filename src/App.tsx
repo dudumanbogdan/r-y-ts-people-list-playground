@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 import PeopleAdd from './components/PeopleAdd';
 import PeopleList from './components/PeopleList';
@@ -22,6 +23,9 @@ function App() {
       note: "Sample note 2"
     } as People
   ]);
+  const reduxState = useSelector((state) => state);
+
+  console.log('reduxState', reduxState);
 
 
   return (
