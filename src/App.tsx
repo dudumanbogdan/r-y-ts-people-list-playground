@@ -26,12 +26,11 @@ function App() {
     } as People
   ]);
 
-  const reduxState = useSelector((state: any) => state);
+  const stateAccount = useSelector((state: any) => state.account);
   const dispatch = useDispatch();
-  const allActionCreators = bindActionCreators(actionCreators, dispatch);
+  const { depositMoney, withdrawMoney } = bindActionCreators(actionCreators, dispatch);
 
-  console.log('reduxState', reduxState);
-  console.log('allActionCreators', allActionCreators);
+  console.log('reduxState', stateAccount);
 
   return (
     <div className="App">
@@ -40,9 +39,9 @@ function App() {
       <PeopleAdd people={people} setPeople={setPeople} />
 
       <section>
-        <button onClick={() => allActionCreators.depositMoney(5)}>Deposit 5 units</button>
-        <button onClick={() => allActionCreators.withdrawMoney(1)}>Withdraw 1 units</button>
-        <span>Current deposit value: {reduxState.account}</span>
+        <button onClick={() => depositMoney(5)}>Deposit 5 units</button>
+        <button onClick={() => withdrawMoney(1)}>Withdraw 1 units</button>
+        <span>Current deposit value: {stateAccount}</span>
       </section>
     </div>
   );
